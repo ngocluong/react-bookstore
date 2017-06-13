@@ -53,17 +53,21 @@ export default class EditProductForm extends Component {
       <div className="add-product-form">
         <form onSubmit={this.editBook}>
           <input
+            required
             type="text"
             placeholder="Name"
             value={this.state.name}
             onChange={this.onNameChange} />
           <input
+            required
             type="text"
+            pattern="^(0|[1-9][0-9]*)$"
             placeholder="Price"
             value={this.state.price}
             onChange={this.onPriceChange} />
           <br />
           <textarea
+            required
             rows="4" 
             cols="54"
             type="text"

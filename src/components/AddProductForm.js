@@ -22,16 +22,19 @@ export default class AddProductForm extends Component {
       <div className="add-product-form">
         <form onSubmit={this.addBook}>
           <input
+            required
             type="text"
             placeholder="Name"
             ref={(input) => { this.name = input; }} />
           <input
+            required
             type="text"
-            pattern="[0-9]"
+            pattern="^(0|[1-9][0-9]*)$"
             placeholder="Price"
             ref={(input) => { this.price = input; }} />
           <br />
           <textarea
+            required
             rows="4" 
             cols="60"
             type="text"
