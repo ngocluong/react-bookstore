@@ -163,15 +163,23 @@ header {
   }
 }
 
-.product-name:hover .remove-product {
+.product-name:hover .remove-product,.product-name:hover .edit-product {
   visibility: visible;
 }
 
 .remove-product {
   visibility: hidden;
   margin-right: 10px;
+  font-size: 16px;
   color: #e57373;
   cursor: pointer;
+}
+
+.edit-product {
+  color: #0F990F;
+  font-size: 18px;
+  visibility: hidden;
+  margin-right: 10px;
 }
 
 .textarea {

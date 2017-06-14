@@ -20,7 +20,11 @@ class Products extends Component {
           <a className='remove-product' onClick={() => removeProduct(index)}>
             ✖
           </a>
+          <NavLink className='edit-product' exact to={`/products/${index}/edit`}>
+            ✎
+          </NavLink>
           <NavLink exact to={`/products/${index}`}>{product.name}</NavLink>
+          
         </div>
       </li>
     ));

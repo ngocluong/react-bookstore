@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux';
-import ProductUpdate from './ProductUpdate'
-import {Route, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 class ProductDetail extends Component {
   static propTypes = {
@@ -32,7 +31,6 @@ class ProductDetail extends Component {
             <NavLink to={`${this.props.match.url}/edit`}>Edit Book</NavLink>
           </li>        
         </ul>
-        <Route path={`${this.props.match.path}/edit`} component={ProductUpdate}/>
       </div>
     );
   }
