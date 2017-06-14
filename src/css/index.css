@@ -175,6 +175,14 @@ header {
   cursor: pointer;
 }
 
+input:invalid {
+  box-shadow: none;
+}
+
+textarea:invalid {
+  box-shadow: none;
+}
+
 .edit-product {
   color: #0F990F;
   font-size: 18px;
