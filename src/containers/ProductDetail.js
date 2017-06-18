@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux';
 import {NavLink} from 'react-router-dom';
+import NotFound from '../components/NotFound'
 
 class ProductDetail extends Component {
   static propTypes = {
@@ -10,6 +11,7 @@ class ProductDetail extends Component {
 
   render() {
     const { product } = this.props;
+    if (!product) return <NotFound />;
     return (
       <div className="main-content">
         <h2>{product.name}</h2>
