@@ -7,17 +7,17 @@ export const addProduct = (props) => {
   };
 }
 
-export const removeProduct = (index) => {
+export const removeProduct = (id) => {
   return {
     type: ProductActionTypes.REMOVE_PRODUCT,
-    index
+    id
   };
 }
 
-export const editProduct = (index, props) => {
+export const editProduct = (id, props) => {
   return {
     type: ProductActionTypes.UPDATE_PRODUCT,
-    index,
+    id,
     props
   };
 }

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import ProductForm from '../components/ProductForm';
 import { bindActionCreators } from 'redux';
 import * as ProductActionCreators from '../actions/product';
+import NotFound from '../components/NotFound'
+import _ from 'lodash';
 
 class ProductUpdate extends Component {
   static propTypes = {
@@ -14,15 +16,16 @@ class ProductUpdate extends Component {
     const { product, dispatch } = this.props;
     const editProduct = bindActionCreators(ProductActionCreators.editProduct, dispatch);
 
+    if (!product) return <NotFound />;
     return (
       <div className="main-content">
         <h2>Update Book</h2>
         <ProductForm 
           editProduct = {editProduct}
           newEntry={false}
-          index = {parseInt(this.props.match.params.id, 10)}
+          id = {parseInt(this.props.match.params.id, 10)}
           name = {product.name}
-          price = {product.price}
+          price = {parseInt(product.price, 10)}
           history = {this.props.history}
           description = {product.description} />
       </div>
@@ -32,7 +35,7 @@ class ProductUpdate extends Component {
 
 const mapStateToProps = (state, ownProps) => (
   {
-    product: state.products[ownProps.match.params.id]
+    product: _.find(state.products, { id: parseInt(ownProps.match.params.id, 10) })
   }
 );
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import NotFound from '../components/NotFound'
+import _ from 'lodash';
 
 class ProductDetail extends Component {
   static propTypes = {
@@ -40,7 +41,7 @@ class ProductDetail extends Component {
 
 const mapStateToProps = (state, ownProps) => (
   {
-    product: state.products[ownProps.match.params.id]
+    product: _.find(state.products, { id: parseInt(ownProps.match.params.id, 10) })
   }
 );
 

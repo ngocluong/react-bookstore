@@ -40,7 +40,7 @@ const initialState = {
   ]
 }
 
-let default_id = 3;
+let default_id = 5;
 
 export default function Product(state=initialState, action) {
   let date = new Date();
@@ -64,9 +64,11 @@ export default function Product(state=initialState, action) {
       };
       
     case ProductActionTypes.REMOVE_PRODUCT:
+      let index = state.products.findIndex((product) => product.id === action.id);
+
       const removeProductList = [
-        ...state.products.slice(0, action.index),
-        ...state.products.slice(action.index + 1)
+        ...state.products.slice(0, index),
+        ...state.products.slice(index + 1)
       ];
 
       return {
@@ -74,8 +76,8 @@ export default function Product(state=initialState, action) {
       };
       
     case ProductActionTypes.UPDATE_PRODUCT:
-      const productList = state.products.map((product, index) => {
-        if(index === action.index) {
+      const productList = state.products.map((product) => {
+        if(product.id === action.id) {
           return {
             ...product,
             name: action.props.name,

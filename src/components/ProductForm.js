@@ -9,7 +9,7 @@ export default class ProductForm extends Component {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    index: PropTypes.number,
+    id: PropTypes.number,
     history: PropTypes.object.isRequired,
   };
 
@@ -47,7 +47,7 @@ export default class ProductForm extends Component {
       });
     } else {
       this.props.editProduct(
-        this.props.index,
+        this.props.id,
         {
           name: this.state.name,
           price: this.state.price,

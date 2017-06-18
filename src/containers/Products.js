@@ -14,16 +14,16 @@ class Products extends Component {
     const { dispatch, products } = this.props;
     const removeProduct = bindActionCreators(ProductActionCreators.removeProduct, dispatch);
 
-    const productComponents = products.map((product, index) => (
-      <li key={index}>
+    const productComponents = products.map((product) => (
+      <li key={product.id}>
         <div className="product-name">
-          <a className='remove-product' onClick={() => removeProduct(index)}>
+          <a className='remove-product' onClick={() => removeProduct(product.id)}>
             ✖
           </a>
-          <NavLink className='edit-product' exact to={`/products/${index}/edit`}>
+          <NavLink className='edit-product' exact to={`/products/${product.id}/edit`}>
             ✎
           </NavLink>
-          <NavLink exact to={`/products/${index}`}>{product.name}</NavLink>
+          <NavLink exact to={`/products/${product.id}`}>{product.name}</NavLink>
           
         </div>
       </li>
