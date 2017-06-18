@@ -64,12 +64,9 @@ export default function Product(state=initialState, action) {
       };
       
     case ProductActionTypes.REMOVE_PRODUCT:
-      let index = state.products.findIndex((product) => product.id === action.id);
-
-      const removeProductList = [
-        ...state.products.slice(0, index),
-        ...state.products.slice(index + 1)
-      ];
+      const removeProductList = state.products.filter(function(product) {
+        return product.id !== action.id;
+      });
 
       return {
         ...state, products: removeProductList
