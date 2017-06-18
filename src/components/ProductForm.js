@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 
-export default class EditProductForm extends Component {
+export default class ProductForm extends Component {
   static propTypes = {
-    editProduct: PropTypes.func.isRequired,
+    editProduct: PropTypes.func,
+    addProduct: PropTypes.func,
+    newEntry: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    index: PropTypes.number.isRequired,
+    index: PropTypes.number,
     history: PropTypes.object.isRequired,
   };
 
@@ -35,23 +37,32 @@ export default class EditProductForm extends Component {
     this.setState({ description: description });
   };
 
-  editBook = (e) => {
+  submitChange = (e) => {
     if (e) e.preventDefault();
-    this.props.editProduct(
-      this.props.index,
-      {
+    if(this.props.newEntry === true) {
+      this.props.addNewBook({
         name: this.state.name,
         price: this.state.price,
         description: this.state.description
-      }
-    );
-    this.props.history.push(`products/${this.props.index}`);
+      });
+    } else {
+      this.props.editProduct(
+        this.props.index,
+        {
+          name: this.state.name,
+          price: this.state.price,
+          description: this.state.description
+        }
+      );  
+    }
+
+    this.props.history.push('/products');
   };
 
   render() {
     return (
       <div className="add-product-form">
-        <form onSubmit={this.editBook}>
+        <form onSubmit={this.submitChange}>
           <input
             required
             type="text"

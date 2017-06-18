@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import { connect } from 'react-redux';
-import EditProductForm from '../components/EditProductForm';
+import ProductForm from '../components/ProductForm';
 import { bindActionCreators } from 'redux';
 import * as ProductActionCreators from '../actions/product';
 
@@ -17,8 +17,9 @@ class ProductUpdate extends Component {
     return (
       <div className="main-content">
         <h2>Update Book</h2>
-        <EditProductForm 
+        <ProductForm 
           editProduct = {editProduct}
+          newEntry={false}
           index = {parseInt(this.props.match.params.id, 10)}
           name = {product.name}
           price = {product.price}
