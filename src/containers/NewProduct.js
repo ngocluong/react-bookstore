@@ -16,7 +16,7 @@ class NewProduct extends Component {
           addNewBook={addProduct}
           newEntry={true}
           name = ""
-          price = ""
+          price = {0}
           description = "" 
           history = {this.props.history} />
       </div>

@@ -88,7 +88,7 @@ export default class ProductForm extends Component {
             onChange={this.onDescriptionChange} />
           <hr/>
           <center>
-            <input type="submit" value="Update Book" />
+            <input type="submit" value={ this.props.newEntry === true ? "Create Book" : "Update Book" } />
           </center>
         </form>
       </div>
