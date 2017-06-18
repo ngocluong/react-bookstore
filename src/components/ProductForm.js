@@ -9,8 +9,7 @@ export default class ProductForm extends Component {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    id: PropTypes.number,
-    history: PropTypes.object.isRequired,
+    id: PropTypes.number
   };
 
   constructor(props) {
@@ -40,7 +39,7 @@ export default class ProductForm extends Component {
   submitChange = (e) => {
     if (e) e.preventDefault();
     if(this.props.newEntry === true) {
-      this.props.addNewBook({
+      this.props.addProduct({
         name: this.state.name,
         price: this.state.price,
         description: this.state.description
@@ -88,7 +87,7 @@ export default class ProductForm extends Component {
             onChange={this.onDescriptionChange} />
           <hr/>
           <center>
-            <input type="submit" value={ this.props.newEntry === true ? "Create Book" : "Update Book" } />
+            <input id='submitForm' type="submit" value={ this.props.newEntry === true ? "Create Book" : "Update Book" } />
           </center>
         </form>
       </div>

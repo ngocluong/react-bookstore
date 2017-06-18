@@ -13,7 +13,7 @@ class NewProduct extends Component {
 			<div className="main-content home">
         <h2>Add New Product</h2>
       	<ProductForm 
-          addNewBook={addProduct}
+          addProduct={addProduct}
           newEntry={true}
           name = ""
           price = {0}
